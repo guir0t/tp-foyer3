@@ -13,10 +13,7 @@ import tn.esprit.tpfoyer.entity.Etudiant;
 import tn.esprit.tpfoyer.repository.EtudiantRepository;
 import tn.esprit.tpfoyer.service.EtudiantServiceImpl;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @ExtendWith(MockitoExtension.class)
@@ -28,14 +25,14 @@ public class EtudiantServiceImplMockTest {
     @InjectMocks
     private EtudiantServiceImpl etudiantService;
 
-    private Etudiant etudiant = new Etudiant("guirat", "amine", 12345678L, new Date());
+    private Etudiant etudiant = new Etudiant(1L, "guirat", "amine", 12345678L, new Date(), new HashSet<>());
 
-    private List<Etudiant> listEtudiants = new ArrayList<Etudiant>() {
-        {
-            add(new Etudiant("bencheikh", "wassim", 87654321L, new Date()));
-            add(new Etudiant("hamdi", "karim", 11223344L, new Date()));
-        }
-    };
+
+    private List<Etudiant> listEtudiants = new ArrayList<Etudiant>() {{
+        add(new Etudiant(2L, "bencheikh", "wassim", 87654321L, new Date(), new HashSet<>()));
+        add(new Etudiant(3L, "hamdi", "karim", 11223344L, new Date(), new HashSet<>()));
+    }};
+
 
     @Test
     public void testRetrieveAllEtudiants() {
