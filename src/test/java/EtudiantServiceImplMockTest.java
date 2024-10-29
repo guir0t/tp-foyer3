@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -36,6 +37,7 @@ public class EtudiantServiceImplMockTest {
     };
 
     @Test
+    @Order(1)
     public void testRetrieveAllEtudiants() {
         // Mocking the repository layer
         Mockito.when(etudiantRepository.findAll()).thenReturn(listEtudiants);
@@ -49,6 +51,7 @@ public class EtudiantServiceImplMockTest {
     }
 
     @Test
+    @Order(2)
     public void testRetrieveEtudiantById() {
         // Mocking the repository layer
         Mockito.when(etudiantRepository.findById(Mockito.anyLong())).thenReturn(Optional.of(etudiant));
@@ -62,6 +65,7 @@ public class EtudiantServiceImplMockTest {
     }
 
     @Test
+    @Order(3)
     public void testAddEtudiant() {
         // Mocking the repository layer
         Mockito.when(etudiantRepository.save(Mockito.any(Etudiant.class))).thenReturn(etudiant);
@@ -75,6 +79,7 @@ public class EtudiantServiceImplMockTest {
     }
 
     @Test
+    @Order(4)
     public void testModifyEtudiant() {
         // Mocking the repository layer
         Mockito.when(etudiantRepository.save(Mockito.any(Etudiant.class))).thenReturn(etudiant);
@@ -91,6 +96,7 @@ public class EtudiantServiceImplMockTest {
     }
 
     @Test
+    @Order(5)
     public void testRemoveEtudiant() {
         long etudiantId = 1L;
 
