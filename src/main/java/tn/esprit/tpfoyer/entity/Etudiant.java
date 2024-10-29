@@ -36,7 +36,6 @@ public class Etudiant {
         this.prenomEtudiant = prenomEtudiant;
         this.cinEtudiant = cinEtudiant;
         this.dateNaissance = dateNaissance;
-        this.reservations = new HashSet<>(); // Initialize reservations to avoid null issues
     }
 
 
